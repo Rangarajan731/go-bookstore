@@ -3,6 +3,7 @@ package models
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/Rangarajan731/go-bookstore/pkg/app"
@@ -21,7 +22,7 @@ type Book struct {
 var db *gorm.DB
 
 func init() {
-	db = app.CreateConnection("postgres://postgres:rang97@localhost:5432/postgres")
+	db = app.CreateConnection(os.Getenv("DB_URL"))
 	db.AutoMigrate(&Book{})
 }
 
