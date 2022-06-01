@@ -1,14 +1,14 @@
 package routes
 
 import (
-	"github.com/Rangarajan731/go-bookstore/pkg/routes"
+	"github.com/Rangarajan731/go-bookstore/pkg/handler"
 	"github.com/gorilla/mux"
 )
 
 func RegisterRoutes(router *mux.Router) {
-	router.HandleFunc("/books/", routes.GetBooks).Methods("GET")
-	router.HandleFunc("/book/{id}", routes.GetBook).Methods("GET")
-	router.HandleFunc("/book/", routes.AddBook).Methods("POST")
-	router.HandleFunc("/book/{id}", routes.UpdateBook).Methods("PUT")
-	router.handleFunc("/book/{id}", routes.DeleteBook).Methods("DELETE")
+	router.HandleFunc("/books/", handler.GetBooks).Methods("GET")
+	router.HandleFunc("/book/{id}", handler.GetBook).Methods("GET")
+	router.HandleFunc("/book/", handler.AddBook).Methods("POST")
+	router.HandleFunc("/book/{id}", handler.UpdateBook).Methods("PUT")
+	router.HandleFunc("/book/{id}", handler.DeleteBook).Methods("DELETE")
 }
