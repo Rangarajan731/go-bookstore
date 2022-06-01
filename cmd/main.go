@@ -12,7 +12,7 @@ func main() {
 	router := mux.NewRouter()
 	routes.RegisterRoutes(router)
 	http.Handle("/", router)
-	err := http.ListenAndServe(":8000", router)
+	err := http.ListenAndServe("localhost:8000", router)
 	if err != nil {
 		log.Fatalln(err)
 	}

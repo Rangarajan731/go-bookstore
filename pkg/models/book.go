@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 
@@ -41,6 +42,7 @@ func GetBooks(r *http.Request) *[]Book {
 func AddBook(r *http.Request) *Book {
 	var book Book
 	utils.ParseBody(r, &book)
+	fmt.Println(book)
 	db.Create(&book)
 	return &book
 }
